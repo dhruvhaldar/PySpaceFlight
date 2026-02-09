@@ -76,13 +76,30 @@ This will execute the simulation and generate the following plots in the `images
 
 ### Visualizations
 
-1.  **Ascent Profile**: Altitude, Velocity, Dynamic Pressure, and Acceleration vs. Time.
+1.  **Ascent Profile**:
+    
+    This dashboard provides a comprehensive view of the rocket's performance during ascent.
+    *   **Altitude vs Time**: Tracks the vertical position of the rocket.
+    *   **Velocity vs Time**: Shows the rapid increase in speed as fuel is consumed and stages ignite.
+    *   **Dynamic Pressure (Q) vs Time**: Monitors aerodynamic stress (Max Q) to ensure structural integrity.
+    *   **Acceleration vs Time**: Displays the g-forces experienced by the vehicle, peaking before stage separation.
+
     ![Ascent Profile](images/ascent_profile.png)
 
-2.  **Trajectory**: 2D Ascent Trajectory (Altitude vs. Downrange Distance).
+2.  **Trajectory**:
+    
+    A 2D cross-section of the flight path, plotting **Altitude** against **Downrange Distance**. This visualizes the gravity turn maneuver, where the rocket tilts to gain horizontal velocity while ascending, optimizing its path to orbit.
+
     ![Trajectory](images/trajectory.png)
 
-3.  **Orbit Visualization**: Visualization of Earth, Parking Orbit, Transfer Orbit, and GEO.
+3.  **Orbit Visualization**:
+    
+    A top-down representation of the orbital mechanics involved in the mission:
+    *   **Earth**: Represented by the central blue circle.
+    *   **Parking Orbit (Green)**: The initial Low Earth Orbit (LEO) achieved after ascent.
+    *   **Geo Transfer Orbit (Yellow)**: The elliptical Hohmann transfer orbit used to travel from LEO to GEO.
+    *   **GEO (Red)**: The target Geostationary Orbit at approximately 35,786 km altitude.
+
     ![Orbit Visualization](images/orbit_viz.png)
 
 ### Example Output
