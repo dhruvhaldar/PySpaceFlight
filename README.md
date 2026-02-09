@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-**PySpaceFlight** is a comprehensive Python-based simulation tool developed for the **SD2900 Fundamentals of Spaceflight** course. It demonstrates key concepts from the syllabus, including:
+**PySpaceFlight** is a comprehensive Python-based simulation tool developed for **[ KTH Royal Institute of Technology : SD2900 Fundamentals of Spaceflight](https://www.kth.se/student/kurser/kurs/SD2900?l=en)** course . It demonstrates key concepts from the syllabus, including:
 
 *   **Launcher Dynamics**: Simulation of a multi-stage rocket launch from Earth, accounting for thrust, aerodynamic drag, gravity losses, and mass variation.
 *   **Orbital Mechanics**: Calculation of Keplerian orbital elements (semi-major axis, eccentricity, inclination, etc.) from state vectors.
