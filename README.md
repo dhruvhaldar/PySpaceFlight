@@ -39,7 +39,21 @@ This project directly addresses the following Intended Learning Outcomes (ILOs) 
     cd PySpaceFlight
     ```
 
-2.  Install dependencies:
+2.  Create and activate a virtual environment:
+
+    *   **Windows:**
+        ```bash
+        python -m venv venv
+        .\venv\Scripts\activate
+        ```
+
+    *   **macOS/Linux:**
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+
+3.  Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
