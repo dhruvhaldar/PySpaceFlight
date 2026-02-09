@@ -35,8 +35,8 @@ This project directly addresses the following Intended Learning Outcomes (ILOs) 
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/sd2900-space-mission.git
-    cd sd2900-space-mission
+    git clone https://github.com/dhruvhaldar/PySpaceFlight
+    cd PySpaceFlight
     ```
 
 2.  Install dependencies:
