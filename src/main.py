@@ -59,9 +59,29 @@ def run_simulation():
     final_v = rocket.velocity
     elements = orbit.get_orbital_elements(final_r, final_v)
     
-    print("\nFinal Orbital Elements:")
+    print("\n" + "="*30)
+    print("Final Orbital Elements")
+    print("="*30)
+
+    # Define units for each element
+    units = {
+        'a': 'm',
+        'e': '',
+        'i': 'deg',
+        'Omega': 'deg',
+        'omega': 'deg',
+        'nu': 'deg',
+        'period': 's'
+    }
+
     for key, val in elements.items():
-        print(f"{key}: {val:.4f}")
+        unit = units.get(key, '')
+        if key == 'a':
+            print(f"{key:<10}: {val/1000:,.2f} km")
+        elif key == 'period':
+            print(f"{key:<10}: {val/60:.2f} min ({val:.2f} s)")
+        else:
+            print(f"{key:<10}: {val:.4f} {unit}")
         
     # Hohmann Transfer Calculation
     # Assume we are in a circular orbit at the final altitude (approx)
@@ -100,25 +120,25 @@ def plot_results(rocket, elements, r1, r2):
     axs[0, 0].set_title("Altitude vs Time")
     axs[0, 0].set_xlabel("Time (s)")
     axs[0, 0].set_ylabel("Altitude (km)")
-    axs[0, 0].grid(True)
+    axs[0, 0].grid(True, alpha=0.5)
     
     axs[0, 1].plot(t, vel)
     axs[0, 1].set_title("Velocity vs Time")
     axs[0, 1].set_xlabel("Time (s)")
     axs[0, 1].set_ylabel("Velocity (m/s)")
-    axs[0, 1].grid(True)
+    axs[0, 1].grid(True, alpha=0.5)
     
     axs[1, 0].plot(t, q)
     axs[1, 0].set_title("Dynamic Pressure (Q) vs Time")
     axs[1, 0].set_xlabel("Time (s)")
     axs[1, 0].set_ylabel("Q (kPa)")
-    axs[1, 0].grid(True)
+    axs[1, 0].grid(True, alpha=0.5)
     
     axs[1, 1].plot(t, acc)
     axs[1, 1].set_title("Acceleration vs Time")
     axs[1, 1].set_xlabel("Time (s)")
     axs[1, 1].set_ylabel("Acceleration (g)")
-    axs[1, 1].grid(True)
+    axs[1, 1].grid(True, alpha=0.5)
     
     plt.tight_layout()
     plt.savefig("images/ascent_profile.png")
@@ -131,7 +151,7 @@ def plot_results(rocket, elements, r1, r2):
     plt.title("Ascent Trajectory")
     plt.xlabel("Downrange Distance (km)")
     plt.ylabel("Altitude (km)")
-    plt.grid(True)
+    plt.grid(True, alpha=0.5)
     plt.savefig("images/trajectory.png")
     print("Saved images/trajectory.png")
     
@@ -142,17 +162,17 @@ def plot_results(rocket, elements, r1, r2):
     y_earth = R_EARTH * np.sin(theta)
     
     plt.figure(figsize=(10, 10))
-    plt.plot(x_earth/1000, y_earth/1000, 'b-', label='Earth')
+    plt.plot(x_earth/1000, y_earth/1000, color='tab:blue', linestyle='-', label='Earth')
     
     # Parking Orbit (simplified as circular)
     x_parking = r1 * np.cos(theta)
     y_parking = r1 * np.sin(theta)
-    plt.plot(x_parking/1000, y_parking/1000, 'g--', label='Parking Orbit')
+    plt.plot(x_parking/1000, y_parking/1000, color='tab:green', linestyle='--', label='Parking Orbit')
     
     # Target Orbit (GEO)
     x_geo = r2 * np.cos(theta)
     y_geo = r2 * np.sin(theta)
-    plt.plot(x_geo/1000, y_geo/1000, 'r--', label='GEO')
+    plt.plot(x_geo/1000, y_geo/1000, color='tab:red', linestyle='--', label='GEO')
     
     # Transfer Orbit
     # Ellipse with a = (r1+r2)/2, e = (r2-r1)/(r2+r1)
@@ -166,14 +186,14 @@ def plot_results(rocket, elements, r1, r2):
     
     # We only need the half ellipse from periapsis to apoapsis
     # But full ellipse is fine to show
-    plt.plot(x_transfer/1000, y_transfer/1000, 'y-', label='Hohmann Transfer')
+    plt.plot(x_transfer/1000, y_transfer/1000, color='tab:orange', linestyle='-', label='Hohmann Transfer')
     
     plt.title("PySpaceFlight: Orbital Maneuvers Visualization")
     plt.xlabel("X (km)")
     plt.ylabel("Y (km)")
     plt.axis('equal')
     plt.legend()
-    plt.grid(True)
+    plt.grid(True, alpha=0.5)
     plt.savefig("images/orbit_viz.png")
     print("Saved images/orbit_viz.png")
 
