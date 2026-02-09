@@ -44,7 +44,7 @@ This project directly addresses the following Intended Learning Outcomes (ILOs) 
     *   **Windows:**
         ```bash
         python -m venv venv
-        .\venv\Scripts\activate
+        .\venv\Scripts\activate.ps1
         ```
 
     *   **macOS/Linux:**
@@ -62,15 +62,28 @@ This project directly addresses the following Intended Learning Outcomes (ILOs) 
 
 Run the main simulation script:
 
-```bash
-python src/main.py
-```
+*   **Windows:**
+    ```powershell
+    python .\src\main.py
+    ```
+
+*   **macOS/Linux:**
+    ```bash
+    python3 ./src/main.py
+    ```
 
 This will execute the simulation and generate the following plots in the `images/` directory:
 
-1.  **ascent_profile.png**: Altitude, Velocity, Dynamic Pressure, and Acceleration vs. Time.
-2.  **trajectory.png**: 2D Ascent Trajectory (Altitude vs. Downrange Distance).
-3.  **orbit_viz.png**: Visualization of Earth, Parking Orbit, Transfer Orbit, and GEO.
+### Visualizations
+
+1.  **Ascent Profile**: Altitude, Velocity, Dynamic Pressure, and Acceleration vs. Time.
+    ![Ascent Profile](images/ascent_profile.png)
+
+2.  **Trajectory**: 2D Ascent Trajectory (Altitude vs. Downrange Distance).
+    ![Trajectory](images/trajectory.png)
+
+3.  **Orbit Visualization**: Visualization of Earth, Parking Orbit, Transfer Orbit, and GEO.
+    ![Orbit Visualization](images/orbit_viz.png)
 
 ### Example Output
 
