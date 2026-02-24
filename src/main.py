@@ -65,23 +65,36 @@ def run_simulation():
 
     # Define units for each element
     units = {
-        'a': 'm',
+        'a': 'km',
         'e': '',
         'i': 'deg',
         'Omega': 'deg',
         'omega': 'deg',
         'nu': 'deg',
-        'period': 's'
+        'period': 'min'
+    }
+
+    # Descriptive labels for better UX
+    labels = {
+        'a': 'Semi-major Axis (a)',
+        'e': 'Eccentricity (e)',
+        'i': 'Inclination (i)',
+        'Omega': 'Long. Asc. Node (Omega)',
+        'omega': 'Arg. of Periapsis (omega)',
+        'nu': 'True Anomaly (nu)',
+        'period': 'Orbital Period'
     }
 
     for key, val in elements.items():
         unit = units.get(key, '')
+        label = labels.get(key, key)
+
         if key == 'a':
-            print(f"{key:<10}: {val/1000:,.2f} km")
+            print(f"{label:<30}: {val/1000:,.2f} {unit}")
         elif key == 'period':
-            print(f"{key:<10}: {val/60:.2f} min ({val:.2f} s)")
+            print(f"{label:<30}: {val/60:.2f} {unit} ({val:.2f} s)")
         else:
-            print(f"{key:<10}: {val:.4f} {unit}")
+            print(f"{label:<30}: {val:.4f} {unit}")
         
     # Hohmann Transfer Calculation
     # Assume we are in a circular orbit at the final altitude (approx)
